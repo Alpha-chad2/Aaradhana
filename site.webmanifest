@@ -1,0 +1,16 @@
+{
+  "name": "आराधना | आरती आणि श्लोक",
+  "short_name": "आराधना",
+  "description": "आरती आणि श्लोकांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#f4f1e8",
+  "icons": [
+    {
+      "src": "./assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

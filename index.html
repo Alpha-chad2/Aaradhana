@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1e8" />
+    <meta name="description" content="आरती आणि श्लोकांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव." />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <title>आराधना | आरती आणि श्लोक</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.8 7-6.7 0-3.2-2.1-5.5-4.2-7.8.1 2.1-1.1 3.8-2.7 4.8.3-3-1.1-5.4-3.2-7.1.2 3.6-4.8 5.1-4.8 10.1C4.1 19.2 7.4 22 12 22Z" fill="currentColor" stroke="none"/><path d="M12 22c1.9 0 3.4-1.3 3.4-3.2 0-1.4-1-2.6-2.1-3.7 0 1.1-.6 2-1.5 2.7.1-1.6-.6-2.7-1.6-3.6.1 1.9-2.4 2.8-2.4 5C7.8 20.8 9.6 22 12 22Z" fill="var(--surface)" stroke="none"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2m15.6 0H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 15.7A8.5 8.5 0 0 1 8.3 3.5 8.5 8.5 0 1 0 20.5 15.7Z"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .4 2l.1.1-2.1 2.1-.1-.1a1.8 1.8 0 0 0-2-.4 1.8 1.8 0 0 0-1.1 1.6v.2h-3v-.2a1.8 1.8 0 0 0-1.1-1.6 1.8 1.8 0 0 0-2 .4l-.1.1-2.1-2.1.1-.1a1.8 1.8 0 0 0 .4-2 1.8 1.8 0 0 0-1.6-1.1H5v-3h.2A1.8 1.8 0 0 0 6.8 9a1.8 1.8 0 0 0-.4-2l-.1-.1 2.1-2.1.1.1a1.8 1.8 0 0 0 2 .4 1.8 1.8 0 0 0 1.1-1.6V3.5h3v.2A1.8 1.8 0 0 0 15.6 5a1.8 1.8 0 0 0 2-.4l.1-.1 2.1 2.1-.1.1a1.8 1.8 0 0 0-.4 2 1.8 1.8 0 0 0 1.6 1.1h.2v3h-.2a1.8 1.8 0 0 0-1.5 1.2Z"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8.5 4H4v4.5M15.5 4H20v4.5M20 15.5V20h-4.5M4 15.5V20h4.5"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.4"/><path d="m4 17 5-5 3.5 3 2.5-2.5L20 17"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.3 4.3L19 6.7"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 8.8C20 14.2 12 19 12 19S4 14.2 4 8.8A4.3 4.3 0 0 1 12 6.5a4.3 4.3 0 0 1 8 2.3Z"/></symbol>
+    </svg>
+
+    <div class="app-shell" id="appShell">
+      <aside class="library-panel" id="libraryPanel" aria-label="संग्रह">
+        <div class="brand-row">
+          <a class="brand" href="#reader" aria-label="आराधना होम">
+            <span class="brand-mark"><svg><use href="#i-flame"></use></svg></span>
+            <span>आराधना</span>
+          </a>
+          <button class="icon-button panel-close" type="button" data-action="close-library" aria-label="संग्रह बंद करा"><svg><use href="#i-close"></use></svg></button>
+        </div>
+        <div class="search-wrap">
+          <svg><use href="#i-search"></use></svg>
+          <input id="searchInput" type="search" placeholder="आरती शोधा" autocomplete="off" />
+        </div>
+        <nav class="collection-nav" aria-label="आरती आणि श्लोक निवडा">
+          <p class="nav-label">आजचे वाचन</p>
+          <div id="libraryList" class="library-list"></div>
+        </nav>
+        <div class="sidebar-note">
+          <svg><use href="#i-heart"></use></svg>
+          <p>अक्षरे जपून, मन शांत ठेवून.</p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="reader">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button menu-button" type="button" data-action="open-library" aria-label="संग्रह उघडा"><svg><use href="#i-book"></use></svg></button>
+            <div class="mobile-title">आराधना</div>
+            <div class="crumb" id="crumbText">आरती संग्रह</div>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" type="button" data-action="toggle-theme" aria-label="रंगसंगती बदला" title="रंगसंगती बदला"><svg id="themeIcon"><use href="#i-moon"></use></svg></button>
+            <button class="icon-button" type="button" data-action="open-settings" aria-label="वाचन सेटिंग्ज" title="वाचन सेटिंग्ज"><svg><use href="#i-settings"></use></svg></button>
+          </div>
+        </header>
+
+        <section class="reader-stage" aria-live="polite">
+          <div class="reader-meta">
+            <div class="meta-kicker"><svg><use href="#i-flame"></use></svg><span id="categoryText">आरती</span></div>
+            <button class="source-link" type="button" data-action="open-source"><svg><use href="#i-image"></use></svg><span>मूळ प्रतिमा</span></button>
+          </div>
+          <button id="exitFocusButton" class="focus-exit" type="button" data-action="exit-focus" aria-label="एकाग्र वाचनातून बाहेर पडा"><svg><use href="#i-close"></use></svg><span>वाचनातून बाहेर पडा</span></button>
+          <h1 id="titleText"></h1>
+          <p id="subtitleText" class="subtitle"></p>
+          <div class="ornament" aria-hidden="true"><span></span><svg><use href="#i-flame"></use></svg><span></span></div>
+          <article id="readingText" class="reading-text" tabindex="-1"></article>
+          <div class="reader-end" aria-hidden="true"><span></span><svg><use href="#i-flame"></use></svg><span></span></div>
+        </section>
+
+        <footer class="reader-footer">
+          <button id="previousButton" class="reader-nav previous" type="button" data-action="previous"><svg><use href="#i-chevron-left"></use></svg><span>मागील</span></button>
+          <div class="reading-count" id="readingCount"></div>
+          <button id="nextButton" class="reader-nav next" type="button" data-action="next"><span>पुढील</span><svg><use href="#i-chevron-right"></use></svg></button>
+        </footer>
+      </main>
+
+      <aside class="settings-panel" id="settingsPanel" aria-label="वाचन सेटिंग्ज">
+        <div class="sheet-handle" aria-hidden="true"><span></span></div>
+        <div class="settings-heading"><div><p class="nav-label">वाचन</p><h2>तुमच्यासाठी</h2></div><button class="icon-button" type="button" data-action="close-settings" aria-label="सेटिंग्ज बंद करा"><svg><use href="#i-close"></use></svg></button></div>
+        <section class="control-group">
+          <div class="control-label"><span>अक्षर आकार</span><output id="fontOutput">28px</output></div>
+          <div class="stepper"><button type="button" data-action="font-down" aria-label="अक्षर आकार कमी करा"><svg><use href="#i-minus"></use></svg></button><span class="type-sample">अ</span><button type="button" data-action="font-up" aria-label="अक्षर आकार वाढवा"><svg><use href="#i-plus"></use></svg></button></div>
+          <input id="fontRange" class="range" type="range" min="22" max="44" step="1" value="28" aria-label="अक्षर आकार निवडा" />
+        </section>
+        <section class="control-group">
+          <div class="control-label"><span>ओळींमधील अंतर</span><output id="spacingOutput">1.8</output></div>
+          <input id="spacingRange" class="range" type="range" min="1.45" max="2.2" step=".05" value="1.8" aria-label="ओळींमधील अंतर" />
+        </section>
+        <section class="control-group">
+          <div class="control-label"><span>वाचनाची पार्श्वभूमी</span></div>
+          <div class="palette-grid" role="group" aria-label="पार्श्वभूमी निवडा">
+            <button class="palette-button palette-ivory" data-palette="ivory" type="button"><span></span><b>शुभ्र</b><svg><use href="#i-check"></use></svg></button>
+            <button class="palette-button palette-rose" data-palette="rose" type="button"><span></span><b>प्रभात</b><svg><use href="#i-check"></use></svg></button>
+            <button class="palette-button palette-sage" data-palette="sage" type="button"><span></span><b>तुळस</b><svg><use href="#i-check"></use></svg></button>
+            <button class="palette-button palette-sky" data-palette="sky" type="button"><span></span><b>गगन</b><svg><use href="#i-check"></use></svg></button>
+            <button class="palette-button palette-sandal" data-palette="sandal" type="button"><span></span><b>चंदन</b><svg><use href="#i-check"></use></svg></button>
+            <button class="palette-button palette-night" data-palette="night" type="button"><span></span><b>रात्र</b><svg><use href="#i-check"></use></svg></button>
+          </div>
+        </section>
+        <section class="control-group toggle-row">
+          <div><span class="control-title">एकाग्र वाचन</span><small>अनावश्यक भाग लपवा</small></div>
+          <button id="focusToggle" class="toggle" type="button" data-action="toggle-focus" role="switch" aria-checked="false"><span></span></button>
+        </section>
+        <p class="settings-note">तुमच्या निवडी या उपकरणावर जतन केल्या जातील.</p>
+      </aside>
+    </div>
+
+    <button class="mobile-fab" type="button" data-action="open-settings" aria-label="वाचन सेटिंग्ज">
+      <svg><use href="#i-settings"></use></svg>
+    </button>
+    <div class="scrim" id="scrim"></div>
+    <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <dialog id="sourceDialog" class="source-dialog" aria-labelledby="sourceDialogTitle">
+      <div class="dialog-head"><div><p class="nav-label">संदर्भ</p><h2 id="sourceDialogTitle">मूळ प्रतिमा</h2></div><button class="icon-button" type="button" data-action="close-source" aria-label="प्रतिमा बंद करा"><svg><use href="#i-close"></use></svg></button></div>
+      <img id="sourceImage" alt="निवडलेल्या आरतीची मूळ प्रतिमा" />
+      <object id="sourcePdf" class="source-pdf" type="application/pdf" aria-label="निवडलेल्या स्तोत्राची मूळ PDF प्रत"></object>
+      <p id="sourceDescription">ही मूळ प्रत दिलेल्या संग्रहातून घेतली आहे. वाचनासाठी वरील मजकूर निवडता व अक्षरांचा आकार बदलता येतो.</p>
+    </dialog>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
