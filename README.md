@@ -29,8 +29,11 @@ NEW_pro/
     │   ├── ghalin-lotangan.pdf
     │   ├── maruti-aarti.txt
     │   └── vyankatesh-aarti.txt
-    ├── icons/                   # Brand icons and favicon
-    │   └── favicon.svg
+    ├── icons/                   # Brand icons, category SVGs and favicon
+    │   ├── aarti_icon.svg       # Aarti category icon (Diya & sacred flame)
+    │   ├── mantra_icon.svg      # Stotra & Mantra category icon (Japa Mala & Yantra)
+    │   ├── shloka_icon.svg      # Shloka category icon (Sacred manuscript scroll)
+    │   └── website_icon.svg     # Aaradhana brand logo & app icon (Golden lotus mandala)
     └── images/                  # Original manuscript / printed reference images
         ├── ambe-ek-kari.jpeg
         ├── datta-aarti.jpeg

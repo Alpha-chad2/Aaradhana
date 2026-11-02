@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f1e8" />
     <meta name="description" content="आरती आणि श्लोकांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव." />
-    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/website_icon.svg" />
     <link rel="manifest" href="./site.webmanifest" />
     <title>आराधना | आरती आणि श्लोक</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css?v=2.1" />
   </head>
   <body>
     <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -36,7 +36,7 @@
       <aside class="library-panel" id="libraryPanel" aria-label="संग्रह">
         <div class="brand-row">
           <a class="brand" href="#reader" aria-label="आराधना होम">
-            <span class="brand-mark"><svg><use href="#i-flame"></use></svg></span>
+            <span class="brand-mark"><img src="./assets/icons/website_icon.svg" alt="आराधना" /></span>
             <span>आराधना</span>
           </a>
           <button class="icon-button panel-close" type="button" data-action="close-library" aria-label="संग्रह बंद करा"><svg><use href="#i-close"></use></svg></button>
@@ -59,7 +59,10 @@
         <header class="topbar">
           <div class="topbar-left">
             <button class="icon-button menu-button" type="button" data-action="open-library" aria-label="संग्रह उघडा"><svg><use href="#i-book"></use></svg></button>
-            <div class="mobile-title">आराधना</div>
+            <div class="mobile-title">
+              <img class="mobile-brand-icon" src="./assets/icons/website_icon.svg" alt="" />
+              <span>आराधना</span>
+            </div>
             <div class="crumb" id="crumbText">आरती संग्रह</div>
           </div>
           <div class="topbar-actions">
@@ -70,7 +73,7 @@
 
         <section class="reader-stage" aria-live="polite">
           <div class="reader-meta">
-            <div class="meta-kicker"><svg><use href="#i-flame"></use></svg><span id="categoryText">आरती</span></div>
+            <div class="meta-kicker"><img id="categoryIcon" class="meta-icon" src="./assets/icons/aarti_icon.svg" alt="" /><span id="categoryText">आरती</span></div>
             <button class="source-link" type="button" data-action="open-source"><svg><use href="#i-image"></use></svg><span>मूळ प्रतिमा</span></button>
           </div>
           <button id="exitFocusButton" class="focus-exit" type="button" data-action="exit-focus" aria-label="एकाग्र वाचनातून बाहेर पडा"><svg><use href="#i-close"></use></svg><span>वाचनातून बाहेर पडा</span></button>
@@ -131,6 +134,6 @@
       <div id="sourceText" class="source-text"></div>
       <p id="sourceDescription">ही मूळ प्रत दिलेल्या संग्रहातून घेतली आहे. वाचनासाठी वरील मजकूर निवडता व अक्षरांचा आकार बदलता येतो.</p>
     </dialog>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js?v=2.1"></script>
   </body>
 </html>

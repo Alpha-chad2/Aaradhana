@@ -286,12 +286,19 @@ function announce(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 1700);
 }
+function getCategoryIcon(category) {
+  if (category === "श्लोक") return "./assets/icons/shloka_icon.svg";
+  if (category === "स्तोत्र" || category === "मंत्र") return "./assets/icons/mantra_icon.svg";
+  return "./assets/icons/aarti_icon.svg";
+}
 function renderLibrary(filter = "") {
   const term = filter.trim().toLowerCase();
   const visible = prayers.filter((prayer) => `${prayer.title} ${prayer.subtitle} ${prayer.category} ${prayer.verses.join(" ")}`.toLowerCase().includes(term));
   $("#libraryList").innerHTML = visible.length ? visible.map((prayer) => `
     <button class="library-item ${prayer.id === state.active ? "is-active" : ""}" type="button" data-prayer="${prayer.id}">
-      <span class="library-icon">${icon(prayer.category === "श्लोक" ? "i-book" : "i-flame")}</span>
+      <span class="library-icon">
+        <img class="library-icon-img" src="${prayer.icon || getCategoryIcon(prayer.category)}" alt="${prayer.category}" width="34" height="34" loading="lazy" />
+      </span>
       <span class="library-copy"><b>${prayer.title}</b><span>${prayer.category}</span></span>
     </button>`).join("") : `<p class="empty-state">कोणतीही आरती सापडली नाही.</p>`;
   $$("[data-prayer]").forEach((button) => button.addEventListener("click", () => selectPrayer(button.dataset.prayer)));
@@ -300,6 +307,11 @@ function renderReader({ shouldFocus = false } = {}) {
   const prayer = activePrayer();
   $("#crumbText").textContent = prayer.category === "श्लोक" ? "श्लोक संग्रह" : (prayer.category === "स्तोत्र" ? "स्तोत्र संग्रह" : "आरती संग्रह");
   $("#categoryText").textContent = prayer.category;
+  const categoryIconEl = $("#categoryIcon");
+  if (categoryIconEl) {
+    categoryIconEl.src = prayer.icon || getCategoryIcon(prayer.category);
+    categoryIconEl.alt = prayer.category;
+  }
   $("#titleText").textContent = prayer.title;
   $("#subtitleText").textContent = prayer.subtitle;
   const reading = $("#readingText");
@@ -344,7 +356,7 @@ function updateSettings() {
     button.setAttribute("aria-pressed", chosen);
   });
   $("#themeIcon use").setAttribute("href", state.palette === "night" ? "#i-sun" : "#i-moon");
-  document.querySelector('meta[name="theme-color"]').setAttribute("content", state.palette === "night" ? "#1d2321" : "#f4f1e8");
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", state.palette === "night" ? "#141518" : "#f4f1e8");
   save();
 }
 function setPanel(panel, open) {
