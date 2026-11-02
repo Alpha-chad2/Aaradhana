@@ -23,8 +23,12 @@ NEW_pro/
 │   └── app.js                   # Prayer library, search, font & theme state management
 │
 └── assets/
-    ├── docs/                    # Reference PDF documents
-    │   └── ghalin-lotangan.pdf
+    ├── docs/                    # Reference documents and manuscripts (PDF & text)
+    │   ├── ashwin-shukla-paksha-aarti.txt
+    │   ├── gajanana-ganaraya.txt
+    │   ├── ghalin-lotangan.pdf
+    │   ├── maruti-aarti.txt
+    │   └── vyankatesh-aarti.txt
     ├── icons/                   # Brand icons and favicon
     │   └── favicon.svg
     └── images/                  # Original manuscript / printed reference images
