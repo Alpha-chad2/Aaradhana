@@ -473,6 +473,15 @@ function bindControls() {
   $("#sourceDialog").addEventListener("click", (event) => { if (event.target === $("#sourceDialog")) closeDialog($("#sourceDialog")); });
 }
 
+function revealWelcomeScreen() {
+  const welcomeScreen = $("#welcomeScreen");
+  if (!welcomeScreen || welcomeScreen.classList.contains("is-ready")) return;
+  welcomeScreen.classList.add("is-ready");
+  window.setTimeout(() => welcomeScreen.remove(), 300);
+}
+
 bindControls();
 updateSettings();
 renderReader();
+window.addEventListener("load", () => window.setTimeout(revealWelcomeScreen, 3500), { once: true });
+window.setTimeout(revealWelcomeScreen, 4000);
