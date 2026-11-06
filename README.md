@@ -33,7 +33,8 @@ NEW_pro/
     │   ├── aarti_icon.svg       # Aarti category icon (Diya & sacred flame)
     │   ├── mantra_icon.svg      # Stotra & Mantra category icon (Japa Mala & Yantra)
     │   ├── shloka_icon.svg      # Shloka category icon (Sacred manuscript scroll)
-    │   └── website_icon.svg     # Aaradhana brand logo & app icon (Golden lotus mandala)
+    │   ├── website_icon.svg     # Aaradhana brand logo & app icon (Golden lotus mandala)
+    │   └── sandalwood_homepage_emblem_full_flower.svg # Animated homepage devotional emblem
     └── images/                  # Original manuscript / printed reference images
         ├── ambe-ek-kari.jpeg
         ├── datta-aarti.jpeg

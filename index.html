@@ -2,143 +2,322 @@
 <html lang="mr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f1e8" />
-    <meta name="description" content="आरती आणि श्लोकांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव." />
-    <link rel="icon" type="image/svg+xml" href="./assets/icons/website_icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f0e3" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="आरती, श्लोक आणि स्तोत्रांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव. मोठी अक्षरे, सात रंगसंगती आणि वाचन सत्र." />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="आराधना" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="आराधना" />
+    <meta property="og:locale" content="mr_IN" />
+    <meta property="og:title" content="आराधना | आरती आणि श्लोक" />
+    <meta property="og:description" content="आरती आणि श्लोकांसाठी सहज, शांत आणि सानुकूल वाचन अनुभव." />
+    <meta property="og:image" content="./assets/icons/icon-512.png" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/themes/ivory/website_icon.svg" />
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
     <title>आराधना | आरती आणि श्लोक</title>
+    <script>try{var s=JSON.parse(localStorage.getItem("aradhana-settings"))||{},p=s.palette||"auto";if(p==="auto")p=matchMedia("(prefers-color-scheme: dark)").matches?"night":"ivory";document.documentElement.dataset.theme=p}catch(e){document.documentElement.dataset.theme="ivory"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/styles.css?v=2.1" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css?v=4.1" />
   </head>
   <body>
-    <div class="welcome-screen" id="welcomeScreen" role="status" aria-label="आराधना लोड होत आहे">
-      <img class="welcome-screen-icon" src="./assets/icons/welcome&&loading_icon.svg" alt="" width="160" height="160" />
+    <a class="skip-link" href="#main">मुख्य भागाकडे जा</a>
+    <div class="welcome-screen" id="welcomeScreen" aria-hidden="true" hidden>
+      <img class="welcome-screen-icon" src="./assets/icons/themes/ivory/welcome&&loading_icon.svg" alt="" width="160" height="160" />
       <span class="welcome-screen-name">आराधना</span>
     </div>
 
-    <svg class="svg-sprite" aria-hidden="true" focusable="false">
-      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.8 7-6.7 0-3.2-2.1-5.5-4.2-7.8.1 2.1-1.1 3.8-2.7 4.8.3-3-1.1-5.4-3.2-7.1.2 3.6-4.8 5.1-4.8 10.1C4.1 19.2 7.4 22 12 22Z" fill="currentColor" stroke="none"/><path d="M12 22c1.9 0 3.4-1.3 3.4-3.2 0-1.4-1-2.6-2.1-3.7 0 1.1-.6 2-1.5 2.7.1-1.6-.6-2.7-1.6-3.6.1 1.9-2.4 2.8-2.4 5C7.8 20.8 9.6 22 12 22Z" fill="var(--surface)" stroke="none"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></symbol>
-      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></symbol>
-      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2m15.6 0H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 15.7A8.5 8.5 0 0 1 8.3 3.5 8.5 8.5 0 1 0 20.5 15.7Z"/></symbol>
-      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .4 2l.1.1-2.1 2.1-.1-.1a1.8 1.8 0 0 0-2-.4 1.8 1.8 0 0 0-1.1 1.6v.2h-3v-.2a1.8 1.8 0 0 0-1.1-1.6 1.8 1.8 0 0 0-2 .4l-.1.1-2.1-2.1.1-.1a1.8 1.8 0 0 0 .4-2 1.8 1.8 0 0 0-1.6-1.1H5v-3h.2A1.8 1.8 0 0 0 6.8 9a1.8 1.8 0 0 0-.4-2l-.1-.1 2.1-2.1.1.1a1.8 1.8 0 0 0 2 .4 1.8 1.8 0 0 0 1.1-1.6V3.5h3v.2A1.8 1.8 0 0 0 15.6 5a1.8 1.8 0 0 0 2-.4l.1-.1 2.1 2.1-.1.1a1.8 1.8 0 0 0-.4 2 1.8 1.8 0 0 0 1.6 1.1h.2v3h-.2a1.8 1.8 0 0 0-1.5 1.2Z"/></symbol>
-      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
-      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
-      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
-      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8.5 4H4v4.5M15.5 4H20v4.5M20 15.5V20h-4.5M4 15.5V20h4.5"/></symbol>
-      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.4"/><path d="m4 17 5-5 3.5 3 2.5-2.5L20 17"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.3 4.3L19 6.7"/></symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 8.8C20 14.2 12 19 12 19S4 14.2 4 8.8A4.3 4.3 0 0 1 12 6.5a4.3 4.3 0 0 1 8 2.3Z"/></symbol>
-    </svg>
+    <main id="main" class="page" tabindex="-1">
+     <div class="view" data-view="home">
+      <section class="hero container" aria-labelledby="homeTitle">
+        <div class="hero-copy">
+          <p class="eyebrow"><svg><use href="#i-flame"></use></svg><span id="heroCount">आरती · श्लोक · स्तोत्र</span></p>
+          <h1 id="homeTitle">आजचे वाचन,<br /><em>मनापासून.</em></h1>
+          <p class="hero-lede">आरती आणि श्लोक स्वच्छ, मोठ्या अक्षरांत वाचा. तुमचा क्रम ठरवा आणि पूजेच्या वेळी एकामागोमाग सलग वाचा — फोनवर, टॅबलेटवर किंवा संगणकावर.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#/collection"><svg><use href="#i-book"></use></svg><span>संग्रह उघडा</span></a>
+            <button class="button button-ghost" type="button" data-ui="open-session"><svg><use href="#i-list"></use></svg><span>वाचन सत्र तयार करा</span></button>
+          </div>
+          <a id="resumeCard" class="resume" href="#" hidden>
+            <img id="resumeIcon" src="./assets/icons/themes/ivory/aarti_icon.svg" alt="" width="44" height="44" />
+            <span><small>मागील वाचन पुढे सुरू करा</small><b id="resumeTitle"></b></span>
+            <svg><use href="#i-chevron-right"></use></svg>
+          </a>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-halo"></div>
+          <img class="hero-emblem" src="./assets/icons/themes/ivory/sandalwood_homepage_emblem_full_flower.svg" alt="" />
+        </div>
+      </section>
 
-    <div class="app-shell" id="appShell">
+      <section class="band" aria-labelledby="todayTitle">
+        <div class="container today">
+          <div class="today-copy">
+            <p class="section-kicker"><svg><use href="#i-calendar"></use></svg><span id="todayDay">आज</span></p>
+            <h2 id="todayTitle">आजच्या दिवसासाठी</h2>
+            <p class="section-lede">वारानुसार पारंपरिक आरती — एका स्पर्शात उघडा.</p>
+          </div>
+          <a class="today-card" id="todayCard" href="#">
+            <img id="todayIcon" src="./assets/icons/themes/ivory/aarti_icon.svg" alt="" width="64" height="64" />
+            <span class="today-card-copy"><b id="todayName"></b><small id="todaySub"></small></span>
+            <span class="today-card-cta"><span>वाचा</span><svg><use href="#i-arrow-right"></use></svg></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="container section" aria-labelledby="browseTitle">
+        <div class="section-head">
+          <div><p class="section-kicker">प्रकारानुसार</p><h2 id="browseTitle">संग्रह पाहा</h2></div>
+          <a class="text-link" href="#/collection">सर्व पाहा <svg><use href="#i-arrow-right"></use></svg></a>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="container section" aria-labelledby="themesTitle">
+        <div class="section-head">
+          <div><p class="section-kicker">रंगसंगती</p><h2 id="themesTitle">तुमच्या डोळ्यांना सोयीचा रंग</h2><p class="section-lede">एक निवडा — संपूर्ण संकेतस्थळ लगेच बदलते. रात्री वाचताना «रात्र» निवडा.</p></div>
+        </div>
+        <div class="theme-showcase">
+          <div class="theme-preview" aria-hidden="true">
+            <div class="theme-preview-bar"><i></i><i></i><i></i></div>
+            <div class="theme-preview-body">
+              <span class="tp-kicker">आरती</span>
+              <span class="tp-title">श्री गणेशाची आरती</span>
+              <span class="tp-line"></span>
+              <span class="tp-verse">सुखकर्ता दुखहर्ता वार्ता विघ्नाची ।</span>
+              <span class="tp-verse tp-refrain">जय देव जय देव जय मंगलमूर्ती ।</span>
+              <span class="tp-button">पुढील</span>
+            </div>
+          </div>
+          <div class="theme-list theme-list-grid"></div>
+        </div>
+      </section>
+
+      <section class="container section cta-band" aria-labelledby="ctaTitle">
+        <div>
+          <h2 id="ctaTitle">फोनवर अ‍ॅपसारखे वापरा</h2>
+          <p class="section-lede">होम स्क्रीनवर जोडा — इंटरनेटशिवायही वाचता येते.</p>
+        </div>
+        <div class="cta-actions">
+          <button class="button button-primary" type="button" data-install hidden><svg><use href="#i-download"></use></svg><span>इंस्टॉल करा</span></button>
+          <a class="button button-ghost" href="#/about"><span>कसे जोडावे</span><svg><use href="#i-arrow-right"></use></svg></a>
+        </div>
+      </section>
+     </div>
+      <div class="view" data-view="collection" hidden>
+        <header class="page-head container">
+          <nav class="breadcrumb" aria-label="मार्ग"><a href="#/">मुख्यपृष्ठ</a><span aria-hidden="true">/</span><span>संग्रह</span></nav>
+          <h1 class="page-title">संपूर्ण संग्रह</h1>
+          <p class="page-lede" id="collectionLede">आरती, श्लोक आणि स्तोत्रे — एका स्पर्शात वाचा.</p>
+        </header>
+        <section class="container collection" aria-label="संग्रह यादी">
+          <div class="collection-bar">
+            <div class="filter-chips" role="tablist" aria-label="प्रकार निवडा" id="filterChips"></div>
+            <label class="search-field">
+              <svg><use href="#i-search"></use></svg>
+              <span class="visually-hidden">संग्रहात शोधा</span>
+              <input id="collectionSearch" type="search" placeholder="नाव किंवा ओळ शोधा…" autocomplete="off" enterkeyhint="search" />
+            </label>
+          </div>
+          <p class="result-count" id="resultCount" aria-live="polite"></p>
+          <ol id="collectionList" class="collection-list"></ol>
+          <div class="collection-foot">
+            <p>अनेक वाचने क्रमाने हवी आहेत?</p>
+            <button class="button button-primary" type="button" data-ui="open-session"><svg><use href="#i-list"></use></svg><span>वाचन सत्र तयार करा</span></button>
+          </div>
+        </section>
+      </div>
+
+      <div class="view" data-view="about" hidden>
+        <header class="page-head container">
+          <nav class="breadcrumb" aria-label="मार्ग"><a href="#/">मुख्यपृष्ठ</a><span aria-hidden="true">/</span><span>माहिती</span></nav>
+          <h1 class="page-title">आराधना कसे वापरावे</h1>
+          <p class="page-lede">पूजेच्या वेळी हातात फोन धरून सहज वाचता यावे, यासाठी बनवलेले.</p>
+        </header>
+        <div class="container about">
+          <nav class="about-toc" aria-label="या पानावर">
+            <a href="#/about" data-jump="howto">वापर</a>
+            <a href="#/about" data-jump="features">सुविधा</a>
+            <a href="#/about" data-jump="install">इंस्टॉल</a>
+            <a href="#/about" data-jump="shortcuts">शॉर्टकट</a>
+            <a href="#/about" data-jump="faq">प्रश्न</a>
+          </nav>
+          <div class="about-body">
+            <section id="howto" aria-labelledby="howtoTitle">
+              <h2 id="howtoTitle">तीन सोप्या पायऱ्या</h2>
+              <ol class="steps">
+                <li><span class="step-num">१</span><div><h3>निवडा</h3><p>संग्रहातून आरती किंवा श्लोक थेट उघडा, किंवा अनेक निवडून वाचन सत्र तयार करा.</p></div></li>
+                <li><span class="step-num">२</span><div><h3>तुमच्या सोयीने</h3><p>वाचताना <b>सेटिंग्ज</b> उघडून अक्षर आकार, ओळींमधील अंतर आणि रंगसंगती बदला.</p></div></li>
+                <li><span class="step-num">३</span><div><h3>सलग वाचा</h3><p>फोनवर डावीकडे/उजवीकडे सरकवा किंवा «पुढील» दाबा. एकाग्र वाचनात फक्त मजकूर दिसतो.</p></div></li>
+              </ol>
+            </section>
+            <section id="features" aria-labelledby="featuresTitle">
+              <h2 id="featuresTitle">सुविधा</h2>
+              <dl class="feature-list">
+                <div><dt>सात रंगसंगती</dt><dd>शुभ्र, चंदन, प्रभात, तुळस, गगन, रात्र — किंवा «स्वयं», जे उपकरणाच्या डार्क मोडनुसार बदलते.</dd></div>
+                <div><dt>स्क्रीन चालू ठेवा</dt><dd>आरती म्हणताना फोनची स्क्रीन आपोआप बंद होत नाही (समर्थित ब्राउझरमध्ये).</dd></div>
+                <div><dt>इंटरनेटशिवाय</dt><dd>एकदा उघडल्यावर संग्रह ऑफलाइनही वाचता येतो.</dd></div>
+                <div><dt>मूळ प्रत</dt><dd>प्रत्येक वाचनासोबत दिलेली मूळ प्रतिमा, PDF किंवा मजकूर पाहता येतो.</dd></div>
+                <div><dt>शेअर, कॉपी, छपाई</dt><dd>दुवा पाठवा, मजकूर कॉपी करा किंवा फक्त मजकूर छापा.</dd></div>
+              </dl>
+            </section>
+            <section id="install" aria-labelledby="installTitle">
+              <h2 id="installTitle">होम स्क्रीनवर जोडा</h2>
+              <div class="install-grid">
+                <div class="install-card"><h3>Android · Chrome</h3><ol><li>वरच्या उजव्या कोपऱ्यातील <b>⋮</b> मेनू उघडा.</li><li><b>Add to Home screen</b> / <b>Install app</b> निवडा.</li></ol></div>
+                <div class="install-card"><h3>iPhone / iPad · Safari</h3><ol><li>खालील <b>Share</b> बटण दाबा.</li><li><b>Add to Home Screen</b> निवडा.</li></ol></div>
+                <div class="install-card"><h3>संगणक · Chrome / Edge</h3><ol><li>पत्ता-पट्टीतील इंस्टॉल चिन्ह दाबा.</li><li>किंवा खालील बटण वापरा.</li></ol></div>
+              </div>
+              <button class="button button-primary" type="button" data-install hidden><svg><use href="#i-download"></use></svg><span>आता इंस्टॉल करा</span></button>
+            </section>
+            <section id="shortcuts" aria-labelledby="shortcutsTitle">
+              <h2 id="shortcutsTitle">कीबोर्ड शॉर्टकट</h2>
+              <dl class="kbd-list">
+                <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>मागील / पुढील वाचन</dd></div>
+                <div><dt><kbd>+</kbd> <kbd>−</kbd></dt><dd>अक्षर आकार</dd></div>
+                <div><dt><kbd>F</kbd></dt><dd>एकाग्र वाचन</dd></div>
+                <div><dt><kbd>/</kbd></dt><dd>शोधा</dd></div>
+                <div><dt><kbd>Esc</kbd></dt><dd>बंद करा</dd></div>
+              </dl>
+            </section>
+            <section id="faq" aria-labelledby="faqTitle">
+              <h2 id="faqTitle">नेहमीचे प्रश्न</h2>
+              <details><summary>माझ्या निवडी कुठे जतन होतात?</summary><p>फक्त याच उपकरणावर, ब्राउझरमध्ये. कोणतीही माहिती बाहेर पाठवली जात नाही.</p></details>
+              <details><summary>अक्षरे फार लहान दिसतात.</summary><p>वाचताना <b>सेटिंग्ज</b> उघडा आणि अक्षर आकार ४८px पर्यंत वाढवा.</p></details>
+              <details><summary>मजकुरात चूक आढळली तर?</summary><p>«मूळ प्रत» उघडून तुलना करा. सुधारणा पुढील आवृत्तीत केली जाईल.</p></details>
+            </section>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <div id="pageEnd" hidden></div>
+    <div class="app-shell" id="appShell" hidden>
       <aside class="library-panel" id="libraryPanel" aria-label="संग्रह">
         <div class="brand-row">
-          <a class="brand" href="#reader" aria-label="आराधना होम">
-            <span class="brand-mark"><img src="./assets/icons/website_icon.svg" alt="आराधना" /></span>
-            <span>आराधना</span>
-          </a>
+          <a class="brand" href="#/" aria-label="मुख्यपृष्ठ"><img class="brand-mark" src="./assets/icons/themes/ivory/website_icon.svg" alt="" width="32" height="32" /><span>आराधना</span></a>
           <button class="icon-button panel-close" type="button" data-action="close-library" aria-label="संग्रह बंद करा"><svg><use href="#i-close"></use></svg></button>
         </div>
-        <div class="search-wrap">
+        <label class="search-field">
           <svg><use href="#i-search"></use></svg>
-          <input id="searchInput" type="search" placeholder="आरती शोधा" autocomplete="off" />
-        </div>
-        <nav class="collection-nav" aria-label="आरती आणि श्लोक निवडा">
-          <p class="nav-label">आजचे वाचन</p>
+          <span class="visually-hidden">संग्रहात शोधा</span>
+          <input id="librarySearch" type="search" placeholder="आरती शोधा" autocomplete="off" enterkeyhint="search" />
+        </label>
+        <nav class="collection-nav" aria-label="आरती आणि श्लोक">
+          <p class="eyebrow-text" id="libraryLabel">संपूर्ण संग्रह</p>
           <div id="libraryList" class="library-list"></div>
         </nav>
-        <div class="sidebar-note">
-          <svg><use href="#i-heart"></use></svg>
-          <p>अक्षरे जपून, मन शांत ठेवून.</p>
-        </div>
       </aside>
 
-      <main class="main-content" id="reader">
+      <div class="reader-main">
+        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
         <header class="topbar">
           <div class="topbar-left">
-            <button class="icon-button menu-button" type="button" data-action="open-library" aria-label="संग्रह उघडा"><svg><use href="#i-book"></use></svg></button>
-            <div class="mobile-title">
-              <img class="mobile-brand-icon" src="./assets/icons/website_icon.svg" alt="" />
-              <span>आराधना</span>
-            </div>
-            <div class="crumb" id="crumbText">आरती संग्रह</div>
+            <a class="icon-button back-button" href="#/collection" aria-label="संग्रहाकडे परत"><svg><use href="#i-arrow-left"></use></svg></a>
+            <button class="icon-button menu-button" type="button" data-action="open-library" aria-label="संग्रह उघडा"><svg><use href="#i-list"></use></svg></button>
+            <button id="libraryToggle" class="chip-button library-toggle" type="button" data-action="toggle-library" aria-expanded="true" aria-controls="libraryPanel"><svg><use href="#i-list"></use></svg><span>संग्रह लपवा</span></button>
+            <p class="crumb" id="crumbText"></p>
           </div>
           <div class="topbar-actions">
-            <button class="icon-button" type="button" data-action="toggle-theme" aria-label="रंगसंगती बदला" title="रंगसंगती बदला"><svg id="themeIcon"><use href="#i-moon"></use></svg></button>
-            <button class="icon-button" type="button" data-action="open-settings" aria-label="वाचन सेटिंग्ज" title="वाचन सेटिंग्ज"><svg><use href="#i-settings"></use></svg></button>
+            <button class="icon-button" type="button" data-action="share" aria-label="शेअर करा" title="शेअर करा"><svg><use href="#i-share"></use></svg></button>
+            <button class="icon-button" type="button" data-ui="toggle-theme-panel" aria-controls="themePanel" aria-label="रंगसंगती" title="रंगसंगती"><svg><use href="#i-palette"></use></svg></button>
+            <button class="icon-button settings-trigger" type="button" data-action="open-settings" aria-label="वाचन सेटिंग्ज" title="वाचन सेटिंग्ज"><svg><use href="#i-settings"></use></svg></button>
+            <a class="chip-button chip-accent home-chip" href="#/"><svg><use href="#i-home"></use></svg><span>मुख्यपृष्ठ</span></a>
           </div>
         </header>
 
-        <section class="reader-stage" aria-live="polite">
+        <article class="reader-stage" aria-labelledby="titleText">
           <div class="reader-meta">
-            <div class="meta-kicker"><img id="categoryIcon" class="meta-icon" src="./assets/icons/aarti_icon.svg" alt="" /><span id="categoryText">आरती</span></div>
-            <button class="source-link" type="button" data-action="open-source"><svg><use href="#i-image"></use></svg><span>मूळ प्रतिमा</span></button>
+            <p class="meta-kicker"><img id="categoryIcon" class="meta-icon" src="./assets/icons/themes/ivory/aarti_icon.svg" alt="" width="24" height="24" /><span id="categoryText"></span></p>
+            <div class="reader-meta-actions">
+              <button class="text-button" type="button" data-action="copy" aria-label="मजकूर कॉपी करा"><svg><use href="#i-copy"></use></svg><span>कॉपी</span></button>
+              <button class="text-button" type="button" data-action="open-source" id="sourceButton"><svg><use href="#i-image"></use></svg><span>मूळ प्रत</span></button>
+            </div>
           </div>
-          <button id="exitFocusButton" class="focus-exit" type="button" data-action="exit-focus" aria-label="एकाग्र वाचनातून बाहेर पडा"><svg><use href="#i-close"></use></svg><span>वाचनातून बाहेर पडा</span></button>
+          <div id="sessionBanner" class="session-banner" role="status">
+            <span class="session-banner-mark"><svg><use href="#i-list"></use></svg></span>
+            <span><b>वाचन सत्र</b><small id="sessionBannerText"></small></span>
+            <button class="text-button" type="button" data-action="end-session">संपवा</button>
+          </div>
+          <button class="focus-exit" type="button" data-action="exit-focus"><svg><use href="#i-close"></use></svg><span>एकाग्र वाचन बंद</span></button>
           <h1 id="titleText"></h1>
           <p id="subtitleText" class="subtitle"></p>
           <div class="ornament" aria-hidden="true"><span></span><svg><use href="#i-flame"></use></svg><span></span></div>
-          <article id="readingText" class="reading-text" tabindex="-1"></article>
+          <div id="readingText" class="reading-text" tabindex="-1"></div>
           <div class="reader-end" aria-hidden="true"><span></span><svg><use href="#i-flame"></use></svg><span></span></div>
-        </section>
+          <a id="nextUpCard" class="next-up" href="#" hidden>
+            <span><small>पुढील वाचन</small><b id="nextUpTitle"></b></span>
+            <svg><use href="#i-arrow-right"></use></svg>
+          </a>
+        </article>
 
         <footer class="reader-footer">
-          <button id="previousButton" class="reader-nav previous" type="button" data-action="previous"><svg><use href="#i-chevron-left"></use></svg><span>मागील</span></button>
-          <div class="reading-count" id="readingCount"></div>
-          <button id="nextButton" class="reader-nav next" type="button" data-action="next"><span>पुढील</span><svg><use href="#i-chevron-right"></use></svg></button>
+          <button id="previousButton" class="reader-nav" type="button" data-action="previous"><svg><use href="#i-chevron-left"></use></svg><span>मागील</span></button>
+          <p class="reading-count" id="readingCount" aria-live="polite"></p>
+          <button id="nextButton" class="reader-nav" type="button" data-action="next"><span>पुढील</span><svg><use href="#i-chevron-right"></use></svg></button>
         </footer>
-      </main>
+      </div>
 
       <aside class="settings-panel" id="settingsPanel" aria-label="वाचन सेटिंग्ज">
         <div class="sheet-handle" aria-hidden="true"><span></span></div>
-        <div class="settings-heading"><div><p class="nav-label">वाचन</p><h2>तुमच्यासाठी</h2></div><button class="icon-button" type="button" data-action="close-settings" aria-label="सेटिंग्ज बंद करा"><svg><use href="#i-close"></use></svg></button></div>
+        <div class="settings-heading">
+          <div><p class="eyebrow-text">वाचन</p><h2>तुमच्यासाठी</h2></div>
+          <button class="icon-button settings-close" type="button" data-action="close-settings" aria-label="सेटिंग्ज बंद करा"><svg><use href="#i-close"></use></svg></button>
+        </div>
         <section class="control-group">
-          <div class="control-label"><span>अक्षर आकार</span><output id="fontOutput">28px</output></div>
-          <div class="stepper"><button type="button" data-action="font-down" aria-label="अक्षर आकार कमी करा"><svg><use href="#i-minus"></use></svg></button><span class="type-sample">अ</span><button type="button" data-action="font-up" aria-label="अक्षर आकार वाढवा"><svg><use href="#i-plus"></use></svg></button></div>
-          <input id="fontRange" class="range" type="range" min="22" max="44" step="1" value="28" aria-label="अक्षर आकार निवडा" />
-        </section>
-        <section class="control-group">
-          <div class="control-label"><span>ओळींमधील अंतर</span><output id="spacingOutput">1.8</output></div>
-          <input id="spacingRange" class="range" type="range" min="1.45" max="2.2" step=".05" value="1.8" aria-label="ओळींमधील अंतर" />
-        </section>
-        <section class="control-group">
-          <div class="control-label"><span>वाचनाची पार्श्वभूमी</span></div>
-          <div class="palette-grid" role="group" aria-label="पार्श्वभूमी निवडा">
-            <button class="palette-button palette-ivory" data-palette="ivory" type="button"><span></span><b>शुभ्र</b><svg><use href="#i-check"></use></svg></button>
-            <button class="palette-button palette-rose" data-palette="rose" type="button"><span></span><b>प्रभात</b><svg><use href="#i-check"></use></svg></button>
-            <button class="palette-button palette-sage" data-palette="sage" type="button"><span></span><b>तुळस</b><svg><use href="#i-check"></use></svg></button>
-            <button class="palette-button palette-sky" data-palette="sky" type="button"><span></span><b>गगन</b><svg><use href="#i-check"></use></svg></button>
-            <button class="palette-button palette-sandal" data-palette="sandal" type="button"><span></span><b>चंदन</b><svg><use href="#i-check"></use></svg></button>
-            <button class="palette-button palette-night" data-palette="night" type="button"><span></span><b>रात्र</b><svg><use href="#i-check"></use></svg></button>
+          <div class="control-label"><span>अक्षर आकार</span><output id="fontOutput"></output></div>
+          <div class="stepper">
+            <button type="button" data-action="font-down" aria-label="अक्षर आकार कमी करा"><svg><use href="#i-minus"></use></svg></button>
+            <input id="fontRange" class="range" type="range" min="20" max="48" step="1" aria-label="अक्षर आकार" />
+            <button type="button" data-action="font-up" aria-label="अक्षर आकार वाढवा"><svg><use href="#i-plus"></use></svg></button>
           </div>
         </section>
-        <section class="control-group toggle-row">
-          <div><span class="control-title">एकाग्र वाचन</span><small>अनावश्यक भाग लपवा</small></div>
-          <button id="focusToggle" class="toggle" type="button" data-action="toggle-focus" role="switch" aria-checked="false"><span></span></button>
+        <section class="control-group">
+          <div class="control-label"><span>ओळींमधील अंतर</span><output id="spacingOutput"></output></div>
+          <input id="spacingRange" class="range" type="range" min="1.45" max="2.2" step=".05" aria-label="ओळींमधील अंतर" />
         </section>
-        <p class="settings-note">तुमच्या निवडी या उपकरणावर जतन केल्या जातील.</p>
+        <section class="control-group">
+          <div class="control-label"><span>रंगसंगती</span><span class="control-value" data-theme-name></span></div>
+          <div class="theme-list theme-list-compact" id="settingsThemes"></div>
+        </section>
+        <section class="control-group toggle-list">
+          <div class="toggle-row">
+            <div><span class="control-title">एकाग्र वाचन</span><small>फक्त मजकूर दाखवा</small></div>
+            <button id="focusToggle" class="toggle" type="button" data-action="toggle-focus" role="switch" aria-checked="false" aria-label="एकाग्र वाचन"><span></span></button>
+          </div>
+          <div class="toggle-row" id="wakeRow">
+            <div><span class="control-title">स्क्रीन चालू ठेवा</span><small>वाचताना स्क्रीन बंद होणार नाही</small></div>
+            <button id="wakeToggle" class="toggle" type="button" data-action="toggle-wake" role="switch" aria-checked="false" aria-label="स्क्रीन चालू ठेवा"><span></span></button>
+          </div>
+        </section>
+        <div class="settings-footer">
+          <button class="text-button" type="button" data-action="print"><svg><use href="#i-print"></use></svg><span>छापा</span></button>
+          <button class="text-button" type="button" data-action="reset-settings">मूळ सेटिंग्ज</button>
+        </div>
       </aside>
     </div>
+    <div class="reader-scrim" id="readerScrim" data-action="close-panels"></div>
 
-    <button class="mobile-fab" type="button" data-action="open-settings" aria-label="वाचन सेटिंग्ज">
-      <svg><use href="#i-settings"></use></svg>
-    </button>
-    <div class="scrim" id="scrim"></div>
-    <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite" aria-atomic="true"></div>
-    <dialog id="sourceDialog" class="source-dialog" aria-labelledby="sourceDialogTitle">
-      <div class="dialog-head"><div><p class="nav-label">संदर्भ</p><h2 id="sourceDialogTitle">मूळ प्रतिमा</h2></div><button class="icon-button" type="button" data-action="close-source" aria-label="प्रतिमा बंद करा"><svg><use href="#i-close"></use></svg></button></div>
-      <img id="sourceImage" alt="निवडलेल्या आरतीची मूळ प्रतिमा" />
-      <object id="sourcePdf" class="source-pdf" type="application/pdf" aria-label="निवडलेल्या स्तोत्राची मूळ PDF प्रत"></object>
-      <div id="sourceText" class="source-text"></div>
-      <p id="sourceDescription">ही मूळ प्रत दिलेल्या संग्रहातून घेतली आहे. वाचनासाठी वरील मजकूर निवडता व अक्षरांचा आकार बदलता येतो.</p>
+    <dialog id="sourceDialog" class="dialog source-dialog" aria-labelledby="sourceDialogTitle">
+      <div class="dialog-head"><div><p class="eyebrow-text">मूळ प्रत</p><h2 id="sourceDialogTitle"></h2></div><button class="icon-button" type="button" data-action="close-source" aria-label="बंद करा"><svg><use href="#i-close"></use></svg></button></div>
+      <div class="source-body">
+        <img id="sourceImage" alt="" />
+        <object id="sourcePdf" class="source-pdf" type="application/pdf" aria-label="मूळ PDF प्रत"></object>
+        <div id="sourceText" class="source-text"></div>
+      </div>
+      <p id="sourceDescription" class="dialog-note"></p>
     </dialog>
-    <script src="./js/app.js?v=2.1"></script>
+
+
+    <script src="./js/data.js?v=4.1"></script>
+    <script src="./js/common.js?v=4.1"></script>
+    <script src="./js/app.js?v=4.1"></script>
   </body>
 </html>

@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient -->
-    <radialGradient id="bg-radial" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
-      <stop offset="0%" stop-color="#112656" />
-      <stop offset="100%" stop-color="#07112b" />
-    </radialGradient>
-
     <!-- Primary Gold Gradient -->
     <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFE082" />
@@ -20,7 +14,7 @@
     </linearGradient>
 
     <!-- Outer Ambient Mandala Petal -->
-    <path id="ambient-petal" d="M 0,-20 C -38,-90 -55,-155 0,-225 C 55,-155 38,-90 0,-20 Z" fill="none" stroke="#254385" stroke-width="2" opacity="0.45" />
+    <path id="ambient-petal" d="M 0,-20 C -38,-90 -55,-155 0,-225 C 55,-155 38,-90 0,-20 Z" fill="none" stroke="#9A704C" stroke-width="2" opacity="0.38" />
 
     <!-- Main Ornate Lotus Petal -->
     <g id="main-petal">
@@ -31,13 +25,6 @@
     <!-- Inner Bright Lotus Petal -->
     <path id="inner-petal" d="M 0,0 C -22,-45 -26,-85 0,-120 C 26,-85 22,-45 0,0 Z" fill="url(#gold-grad)" stroke="#FFF8EB" stroke-width="1" opacity="0.95" />
   </defs>
-
-  <!-- Rounded Icon Background (Remove rx="112" for a sharp square) -->
-  <rect width="512" height="512" rx="112" fill="url(#bg-radial)" />
-
-  <!-- Outer Decorative Ring -->
-  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#gold-grad)" stroke-width="1.5" opacity="0.25" />
-  <circle cx="256" cy="256" r="200" fill="none" stroke="#254385" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.5" />
 
   <g transform="translate(256, 256)">
     <!-- Layer 1: Background Watermark Mandala (16 Petals) -->
@@ -97,10 +84,10 @@
     </g>
 
     <!-- Layer 5: Center Sacred Core / Bindu -->
-    <circle cx="0" cy="0" r="42" fill="#07112b" stroke="url(#gold-grad)" stroke-width="3" />
+    <circle cx="0" cy="0" r="42" fill="#E7E5D8" stroke="url(#gold-grad)" stroke-width="3" />
     <circle cx="0" cy="0" r="32" fill="url(#gold-grad)" />
     <!-- Center Four-Pointed Star -->
-    <path d="M 0,-22 Q 0,0 22,0 Q 0,0 0,22 Q 0,0 -22,0 Q 0,0 0,-22 Z" fill="#07112b" />
+    <path d="M 0,-22 Q 0,0 22,0 Q 0,0 0,22 Q 0,0 -22,0 Q 0,0 0,-22 Z" fill="#E7E5D8" />
     <circle cx="0" cy="0" r="5" fill="#FFE082" />
   </g>
 </svg>

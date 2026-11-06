@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="shloka-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1f4f7a" />
+      <stop offset="100%" stop-color="#0b1f33" />
+    </radialGradient>
+    <linearGradient id="shloka-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+    <linearGradient id="shloka-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B45309" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#FCD34D" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#B45309" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background & Outer Rings -->
+  <rect width="512" height="512" rx="112" fill="url(#shloka-bg)" />
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#shloka-gold)" stroke-width="1.5" opacity="0.25" />
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#3d6f9c" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.5" />
+
+  <!-- Scroll Parchment Body -->
+  <rect x="148" y="132" width="216" height="248" fill="url(#shloka-body)" stroke="url(#shloka-gold)" stroke-width="3" />
+  <line x1="166" y1="132" x2="166" y2="380" stroke="url(#shloka-gold)" stroke-width="1" opacity="0.5" />
+  <line x1="346" y1="132" x2="346" y2="380" stroke="url(#shloka-gold)" stroke-width="1" opacity="0.5" />
+
+  <!-- Top Scroll Roller & Finials -->
+  <path d="M 102,126 L 124,116 L 124,148 L 102,138 Z" fill="url(#shloka-gold)" />
+  <path d="M 410,126 L 388,116 L 388,148 L 410,138 Z" fill="url(#shloka-gold)" />
+  <rect x="120" y="118" width="272" height="28" rx="14" fill="url(#shloka-gold)" stroke="#0b1f33" stroke-width="2" />
+  <circle cx="145" cy="132" r="5" fill="#0b1f33" opacity="0.6" />
+  <circle cx="367" cy="132" r="5" fill="#0b1f33" opacity="0.6" />
+
+  <!-- Bottom Scroll Roller & Finials -->
+  <path d="M 102,374 L 124,364 L 124,396 L 102,386 Z" fill="url(#shloka-gold)" />
+  <path d="M 410,374 L 388,364 L 388,396 L 410,386 Z" fill="url(#shloka-gold)" />
+  <rect x="120" y="366" width="272" height="28" rx="14" fill="url(#shloka-gold)" stroke="#0b1f33" stroke-width="2" />
+  <circle cx="145" cy="380" r="5" fill="#0b1f33" opacity="0.6" />
+  <circle cx="367" cy="380" r="5" fill="#0b1f33" opacity="0.6" />
+
+  <!-- Center Sacred Emblem on Scroll -->
+  <g transform="translate(256, 222)">
+    <circle cx="0" cy="0" r="36" fill="#0b1f33" stroke="url(#shloka-gold)" stroke-width="2.5" />
+    <path d="M 0,-26 C -10,-10 -10,10 0,26 C 10,10 10,-10 0,-26 Z" fill="url(#shloka-gold)" />
+    <path d="M -26,0 C -10,-10 10,-10 26,0 C 10,10 -10,10 -26,0 Z" fill="url(#shloka-gold)" />
+    <path d="M -18,-18 C -4,-10 10,4 18,18 C 4,10 -10,-4 -18,-18 Z" fill="url(#shloka-gold)" />
+    <path d="M 18,-18 C 4,-10 -10,4 -18,18 C -4,10 10,-4 18,-18 Z" fill="url(#shloka-gold)" />
+    <circle cx="0" cy="0" r="7" fill="#0b1f33" />
+    <circle cx="0" cy="0" r="3.5" fill="#FFE082" />
+  </g>
+
+  <!-- Stylized Sanskrit Verse / Shloka Lines -->
+  <g stroke="#0b1f33" stroke-width="4.5" stroke-linecap="round" opacity="0.8">
+    <line x1="186" y1="286" x2="326" y2="286" />
+    <line x1="200" y1="312" x2="246" y2="312" />
+    <line x1="266" y1="312" x2="312" y2="312" />
+    <line x1="186" y1="338" x2="326" y2="338" />
+  </g>
+  <circle cx="256" cy="312" r="3.5" fill="#0b1f33" opacity="0.8" />
+</svg>

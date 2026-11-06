@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Primary Gold Gradient -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <!-- Secondary Soft Gold Gradient -->
+    <linearGradient id="gold-soft" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B45309" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FCD34D" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Outer Ambient Mandala Petal -->
+    <path id="ambient-petal" d="M 0,-20 C -38,-90 -55,-155 0,-225 C 55,-155 38,-90 0,-20 Z" fill="none" stroke="#9A704C" stroke-width="2" opacity="0.38" />
+
+    <!-- Main Ornate Lotus Petal -->
+    <g id="main-petal">
+      <path d="M 0,0 C -32,-65 -42,-130 0,-185 C 42,-130 32,-65 0,0 Z" fill="url(#gold-soft)" stroke="url(#gold-grad)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M 0,-15 C -16,-60 -20,-110 0,-155 C 20,-110 16,-60 0,-15 Z" fill="none" stroke="url(#gold-grad)" stroke-width="1.2" opacity="0.7" />
+    </g>
+
+    <!-- Inner Bright Lotus Petal -->
+    <path id="inner-petal" d="M 0,0 C -22,-45 -26,-85 0,-120 C 26,-85 22,-45 0,0 Z" fill="url(#gold-grad)" stroke="#FFF8EB" stroke-width="1" opacity="0.95" />
+  </defs>
+
+  <g transform="translate(256, 256)">
+    <!-- Layer 1: Background Watermark Mandala (16 Petals) -->
+    <g>
+      <use href="#ambient-petal" transform="rotate(0)" />
+      <use href="#ambient-petal" transform="rotate(22.5)" />
+      <use href="#ambient-petal" transform="rotate(45)" />
+      <use href="#ambient-petal" transform="rotate(67.5)" />
+      <use href="#ambient-petal" transform="rotate(90)" />
+      <use href="#ambient-petal" transform="rotate(112.5)" />
+      <use href="#ambient-petal" transform="rotate(135)" />
+      <use href="#ambient-petal" transform="rotate(157.5)" />
+      <use href="#ambient-petal" transform="rotate(180)" />
+      <use href="#ambient-petal" transform="rotate(202.5)" />
+      <use href="#ambient-petal" transform="rotate(225)" />
+      <use href="#ambient-petal" transform="rotate(247.5)" />
+      <use href="#ambient-petal" transform="rotate(270)" />
+      <use href="#ambient-petal" transform="rotate(292.5)" />
+      <use href="#ambient-petal" transform="rotate(315)" />
+      <use href="#ambient-petal" transform="rotate(337.5)" />
+    </g>
+
+    <!-- Layer 2: Secondary Rotated Lotus (8 Petals) -->
+    <g opacity="0.6" transform="scale(0.92)">
+      <use href="#main-petal" transform="rotate(22.5)" />
+      <use href="#main-petal" transform="rotate(67.5)" />
+      <use href="#main-petal" transform="rotate(112.5)" />
+      <use href="#main-petal" transform="rotate(157.5)" />
+      <use href="#main-petal" transform="rotate(202.5)" />
+      <use href="#main-petal" transform="rotate(247.5)" />
+      <use href="#main-petal" transform="rotate(292.5)" />
+      <use href="#main-petal" transform="rotate(337.5)" />
+    </g>
+
+    <!-- Layer 3: Primary Golden Lotus (8 Petals) -->
+    <g>
+      <use href="#main-petal" transform="rotate(0)" />
+      <use href="#main-petal" transform="rotate(45)" />
+      <use href="#main-petal" transform="rotate(90)" />
+      <use href="#main-petal" transform="rotate(135)" />
+      <use href="#main-petal" transform="rotate(180)" />
+      <use href="#main-petal" transform="rotate(225)" />
+      <use href="#main-petal" transform="rotate(270)" />
+      <use href="#main-petal" transform="rotate(315)" />
+    </g>
+
+    <!-- Layer 4: Inner Solid Lotus Petals (8 Petals) -->
+    <g>
+      <use href="#inner-petal" transform="rotate(22.5)" />
+      <use href="#inner-petal" transform="rotate(67.5)" />
+      <use href="#inner-petal" transform="rotate(112.5)" />
+      <use href="#inner-petal" transform="rotate(157.5)" />
+      <use href="#inner-petal" transform="rotate(202.5)" />
+      <use href="#inner-petal" transform="rotate(247.5)" />
+      <use href="#inner-petal" transform="rotate(292.5)" />
+      <use href="#inner-petal" transform="rotate(337.5)" />
+    </g>
+
+    <!-- Layer 5: Center Sacred Core / Bindu -->
+    <circle cx="0" cy="0" r="42" fill="#E7E5D8" stroke="url(#gold-grad)" stroke-width="3" />
+    <circle cx="0" cy="0" r="32" fill="url(#gold-grad)" />
+    <!-- Center Four-Pointed Star -->
+    <path d="M 0,-22 Q 0,0 22,0 Q 0,0 0,22 Q 0,0 -22,0 Q 0,0 0,-22 Z" fill="#E7E5D8" />
+    <circle cx="0" cy="0" r="5" fill="#FFE082" />
+  </g>
+</svg>

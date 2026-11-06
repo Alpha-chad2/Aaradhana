@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="aarti-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1f4f7a" />
+      <stop offset="100%" stop-color="#0b1f33" />
+    </radialGradient>
+    <linearGradient id="aarti-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+    <linearGradient id="aarti-flame" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="55%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FEF08A" />
+    </linearGradient>
+    <radialGradient id="flame-aura" cx="50%" cy="34%" r="32%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background & Outer Rings -->
+  <rect width="512" height="512" rx="112" fill="url(#aarti-bg)" />
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#aarti-gold)" stroke-width="1.5" opacity="0.25" />
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#3d6f9c" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.5" />
+
+  <!-- Ambient Flame Glow -->
+  <circle cx="256" cy="175" r="145" fill="url(#flame-aura)" />
+  <circle cx="256" cy="185" r="78" fill="none" stroke="url(#aarti-gold)" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.5" />
+
+  <!-- Main Flame -->
+  <path d="M 256,80 C 210,145 204,205 256,245 C 308,205 302,145 256,80 Z" fill="url(#aarti-flame)" stroke="#FFF8EB" stroke-width="2" />
+  <path d="M 256,125 C 232,165 230,205 256,232 C 282,205 280,165 256,125 Z" fill="#FFFBEB" opacity="0.9" />
+
+  <!-- Divine Sparks / Rays -->
+  <path d="M 175,140 Q 175,152 187,152 Q 175,152 175,164 Q 175,152 163,152 Q 175,152 175,140 Z" fill="#FFE082" />
+  <path d="M 337,140 Q 337,152 349,152 Q 337,152 337,164 Q 337,152 325,152 Q 337,152 337,140 Z" fill="#FFE082" />
+  <circle cx="205" cy="105" r="3.5" fill="#FFE082" opacity="0.8" />
+  <circle cx="307" cy="105" r="3.5" fill="#FFE082" opacity="0.8" />
+
+  <!-- Diya Bowl -->
+  <path d="M 106,270 Q 180,295 256,260 Q 332,295 406,270 C 390,365 325,395 256,395 C 187,395 122,365 106,270 Z" fill="url(#aarti-gold)" stroke="#FFF8EB" stroke-width="2.5" stroke-linejoin="round" />
+  
+  <!-- Diya Inner Rim & Carvings -->
+  <path d="M 120,275 Q 185,296 256,265 Q 327,296 392,275" fill="none" stroke="#0b1f33" stroke-width="4" opacity="0.65" />
+  <path d="M 148,322 Q 256,365 364,322" fill="none" stroke="#0b1f33" stroke-width="2.5" stroke-dasharray="8 8" opacity="0.45" />
+
+  <!-- Decorative Lotus Base -->
+  <path d="M 200,395 C 215,418 297,418 312,395 Z" fill="url(#aarti-gold)" />
+  <rect x="176" y="410" width="160" height="14" rx="7" fill="url(#aarti-gold)" stroke="#0b1f33" stroke-width="1.5" />
+</svg>
