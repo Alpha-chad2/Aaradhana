@@ -37,10 +37,6 @@ function retintIcons(root = document) {
   const fav = $('link[rel="icon"]');
   if (fav) fav.href = themedIcon("website_icon.svg");
 }
-/* Keep icons injected later (lists, cards) on the current theme too. */
-new MutationObserver((records) => {
-  for (const r of records) for (const n of r.addedNodes) if (n.nodeType === 1) retintIcons(n.tagName === "IMG" ? n.parentNode || n : n);
-}).observe(document.documentElement, { childList: true, subtree: true });
 const readUrl = (id, session) => `#/read/${encodeURIComponent(id)}${session && session.length > 1 ? `?s=${session.map(encodeURIComponent).join(",")}` : ""}`;
 const matchesTerm = (p, term) => !term || `${p.title} ${p.subtitle} ${p.category} ${p.verses.join(" ")}`.toLowerCase().includes(term);
 

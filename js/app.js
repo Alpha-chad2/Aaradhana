@@ -337,13 +337,29 @@ document.addEventListener("click", (e) => {
   if (jump) { e.preventDefault(); document.getElementById(jump.dataset.jump)?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" }); }
 });
 
-$("#collectionSearch").addEventListener("input", renderCollection);
-$("#librarySearch").addEventListener("input", renderLibrary);
+let collectionSearchFrame = 0;
+let librarySearchFrame = 0;
+const scheduleCollectionRender = () => {
+  cancelAnimationFrame(collectionSearchFrame);
+  collectionSearchFrame = requestAnimationFrame(() => { collectionSearchFrame = 0; renderCollection(); });
+};
+const scheduleLibraryRender = () => {
+  cancelAnimationFrame(librarySearchFrame);
+  librarySearchFrame = requestAnimationFrame(() => { librarySearchFrame = 0; renderLibrary(); });
+};
+
+$("#collectionSearch").addEventListener("input", scheduleCollectionRender);
+$("#librarySearch").addEventListener("input", scheduleLibraryRender);
 $("#fontRange").addEventListener("input", (e) => setFont(e.target.value));
 $("#spacingRange").addEventListener("input", (e) => { state.spacing = clamp(Number(e.target.value), 1.45, 2.2); applyReaderSettings(); });
 addEventListener("hashchange", route);
-addEventListener("scroll", updateProgress, { passive: true });
-addEventListener("resize", updateProgress, { passive: true });
+let progressFrame = 0;
+const scheduleProgressUpdate = () => {
+  if (progressFrame) return;
+  progressFrame = requestAnimationFrame(() => { progressFrame = 0; updateProgress(); });
+};
+addEventListener("scroll", scheduleProgressUpdate, { passive: true });
+addEventListener("resize", scheduleProgressUpdate, { passive: true });
 
 document.addEventListener("keydown", (e) => {
   if (e.metaKey || e.ctrlKey || e.altKey) return;

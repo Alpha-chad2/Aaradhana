@@ -120,6 +120,16 @@ body {
   overflow-x: hidden;
 }
 @supports (-webkit-touch-callout: none) { body { background-attachment: scroll; } } /* iOS ignores fixed backgrounds */
+
+/* Fixed gradients and backdrop blur are expensive in Android WebView while scrolling. */
+@media (max-width: 700px) and (pointer: coarse) {
+  body { background-attachment: scroll; }
+  .site-header, .collection-bar, .topbar, .reader-footer, .tab-bar {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--surface-raised);
+  }
+}
 body.has-tabs { --tabs-h: 0px; }
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; color: var(--ink); text-wrap: balance; }
 p { margin: 0; }
