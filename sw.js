@@ -1,12 +1,12 @@
 /* Offline support: network-first for pages, cache-first for static assets. */
-const CACHE = "aradhana-v7";
+const CACHE = "aradhana-v11";
 const CORE = [
   "./",
   "./index.html",
-  "./css/styles.css?v=4.3",
-  "./js/data.js?v=4.3",
-  "./js/common.js?v=4.3",
-  "./js/app.js?v=4.3",
+  "./css/styles.css?v=4.7",
+  "./js/data.js?v=4.7",
+  "./js/common.js?v=4.7",
+  "./js/app.js?v=4.7",
   "./site.webmanifest",
   "./assets/icons/icon-192.png",
   "./assets/icons/themes/ivory/website_icon.svg",

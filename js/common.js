@@ -7,10 +7,10 @@
 /* ---------- storage ---------- */
 const STORE_KEY = "aradhana-settings";
 const Store = {
-  read() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; } },
+  read() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (err) { return {}; } },
   write(patch) {
     const next = { ...Store.read(), ...patch };
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(next)); } catch { /* private mode */ }
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(next)); } catch (err) { /* private mode */ }
     return next;
   }
 };
@@ -23,6 +23,9 @@ const mrDigits = (n) => String(n).replace(/\d/g, (d) => "०१२३४५६�
 const HTML_ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" };
 const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => HTML_ESC[c]);
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* Set in <head>: phones/tablets get `mobile-lite`; ≤2 GB RAM / ≤4 cores / Data Saver also get `low-end-mobile`. */
+const isTouchLite = () => document.documentElement.classList.contains("mobile-lite");
+const isLowEnd = () => document.documentElement.classList.contains("low-end-mobile");
 const prayerById = new Map(prayers.map((p) => [p.id, p]));
 const CATEGORIES = [...new Set(prayers.map((p) => p.category))];
 /* Icons are generated per theme by tools/build_theme_icons.py → assets/icons/themes/<theme>/ */
@@ -60,7 +63,7 @@ function setThemeAttr(id) {
   const resolved = resolveTheme(id);
   document.documentElement.dataset.theme = resolved;
   document.documentElement.dataset.themeChoice = id;
-  $('meta[name="theme-color"]')?.setAttribute("content", THEME_META[resolved]);
+  const meta = $('meta[name="theme-color"]'); if (meta) meta.setAttribute("content", THEME_META[resolved]);
   $$("[data-theme-id]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.themeId === id)));
   $$(".theme-trigger-swatch").forEach((s) => { const t = themeById(id); s.style.setProperty("--sw-bg", t.bg); s.style.setProperty("--sw-accent", t.accent); });
   $$("[data-theme-name]").forEach((el) => { el.textContent = themeById(id).name; });
@@ -72,12 +75,12 @@ function applyTheme(id, origin) {
   if (id === currentThemeId() && document.documentElement.dataset.themeChoice === id) { announce(`${themeById(id).name} आधीच निवडलेली आहे`); return; }
   Store.write({ palette: id });
   const run = () => setThemeAttr(id);
-  if (!document.startViewTransition || reducedMotion()) {
+  if (!document.startViewTransition || reducedMotion() || isLowEnd()) {
     document.documentElement.classList.add("theme-fade");
     run();
     setTimeout(() => document.documentElement.classList.remove("theme-fade"), 450);
   } else {
-    const r = origin?.getBoundingClientRect();
+    const r = origin ? origin.getBoundingClientRect() : null;
     const x = r ? r.left + r.width / 2 : innerWidth / 2;
     const y = r ? r.top + r.height / 2 : 0;
     const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -89,7 +92,8 @@ function applyTheme(id, origin) {
   }
   announce(`${themeById(id).name} रंगसंगती लागू केली`);
 }
-darkQuery.addEventListener?.("change", () => { if (currentThemeId() === "auto") setThemeAttr("auto"); });
+const onSchemeChange = () => { if (currentThemeId() === "auto") setThemeAttr("auto"); };
+if (darkQuery.addEventListener) darkQuery.addEventListener("change", onSchemeChange); else if (darkQuery.addListener) darkQuery.addListener(onSchemeChange);
 
 function themeOptionsHTML(compact = false) {
   return THEMES.map((t) => `
@@ -204,15 +208,15 @@ function openThemePanel(trigger) {
   document.body.classList.add("theme-open");
   panel.setAttribute("aria-hidden", "false");
   $$('[data-ui="toggle-theme-panel"]').forEach((b) => b.setAttribute("aria-expanded", "true"));
-  setTimeout(() => $('[aria-pressed="true"]', panel)?.focus({ preventScroll: true }), 60);
+  setTimeout(() => { const b = $('[aria-pressed="true"]', panel); if (b) b.focus({ preventScroll: true }); }, 60);
 }
 function closeOverlays() {
   const wasOpen = document.body.classList.contains("theme-open");
   document.body.classList.remove("theme-open");
-  $("#themePanel")?.setAttribute("aria-hidden", "true");
+  const tp = $("#themePanel"); if (tp) tp.setAttribute("aria-hidden", "true");
   $$('[data-ui="toggle-theme-panel"]').forEach((b) => b.setAttribute("aria-expanded", "false"));
   document.dispatchEvent(new CustomEvent("closeoverlays"));
-  if (wasOpen && overlayReturn) { overlayReturn.focus?.({ preventScroll: true }); overlayReturn = null; }
+  if (wasOpen && overlayReturn) { if (overlayReturn.focus) overlayReturn.focus({ preventScroll: true }); overlayReturn = null; }
 }
 function openDialog(d) { if (d.showModal) d.showModal(); else d.setAttribute("open", ""); }
 function closeDialog(d) { if (d.close) d.close(); else d.removeAttribute("open"); }
@@ -264,14 +268,14 @@ const UI = {
 
 function mountChrome({ page, header = true, footer = true, tabs = true } = {}) {
   document.body.insertAdjacentHTML("afterbegin", SPRITE + (header ? headerHTML(page) : ""));
-  if (footer) $("#pageEnd")?.insertAdjacentHTML("beforebegin", footerHTML());
+  const pageEnd = $("#pageEnd"); if (footer && pageEnd) pageEnd.insertAdjacentHTML("beforebegin", footerHTML());
   document.body.insertAdjacentHTML("beforeend", chromeExtrasHTML(page, tabs));
   if (tabs) document.body.classList.add("has-tabs");
   setThemeAttr(currentThemeId());
 
   document.addEventListener("click", (e) => {
     const ui = e.target.closest("[data-ui]");
-    if (ui) { UI[ui.dataset.ui]?.(ui); return; }
+    if (ui) { if (UI[ui.dataset.ui]) UI[ui.dataset.ui](ui); return; }
     const th = e.target.closest("[data-theme-id]");
     if (th) { applyTheme(th.dataset.themeId, th); return; }
     const inst = e.target.closest("[data-install]");
@@ -282,7 +286,7 @@ function mountChrome({ page, header = true, footer = true, tabs = true } = {}) {
     const draft = getDraft();
     Store.write({ draft: e.target.checked ? [...draft, id] : draft.filter((x) => x !== id) });
     renderSessionList();
-    $(`#sessionList input[value="${id}"]`)?.focus();
+    const box = $(`#sessionList input[value="${id}"]`); if (box) box.focus();
   });
   $$(".dialog").forEach((d) => d.addEventListener("click", (e) => { if (e.target === d) closeDialog(d); }));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("theme-open")) closeOverlays(); });

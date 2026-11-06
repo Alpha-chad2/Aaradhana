@@ -121,15 +121,57 @@ body {
 }
 @supports (-webkit-touch-callout: none) { body { background-attachment: scroll; } } /* iOS ignores fixed backgrounds */
 
-/* Fixed gradients and backdrop blur are expensive in Android WebView while scrolling. */
-@media (max-width: 700px) and (pointer: coarse) {
-  body { background-attachment: scroll; }
-  .site-header, .collection-bar, .topbar, .reader-footer, .tab-bar {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: var(--surface-raised);
+/* ---------- Performance on touch devices ----------
+   Every phone/tablet (any width, `hover: none`) drops the effects that make
+   Android WebView repaint or re-blur on each scroll frame:
+   fixed backgrounds, backdrop blur, filter shadows and endless animations. */
+@media (hover: none), (pointer: coarse) {
+  body { background-attachment: scroll; background-image: radial-gradient(900px 520px at 100% -8%, var(--glow), transparent 62%); }
+  /* !important: these base rules appear later in the file and would otherwise win. */
+  .site-header, .collection-bar, .topbar, .reader-footer, .tab-bar, .theme-panel {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background-color: var(--surface-raised) !important;
   }
+  body.focus-mode .reader-footer { background-color: var(--bg) !important; }
+  .hero-emblem { filter: none !important; }
+  .hero-halo::after { animation: none !important; }
+  .site-header.is-scrolled { box-shadow: none !important; }
+  /* Off-screen sections skip layout & paint until scrolled near. */
+  .band, .section, .cta-band, .about-body > section, .site-footer { content-visibility: auto; contain-intrinsic-size: auto 600px; }
 }
+/* Theme fade only touches the large surfaces, never every element. */
+.mobile-lite.theme-fade *, .low-end-mobile.theme-fade * { transition: none !important; }
+.mobile-lite.theme-fade body, .mobile-lite.theme-fade .site-header, .mobile-lite.theme-fade .tab-bar { transition: background-color 250ms ease !important; }
+
+/* Low-end devices (≤2 GB RAM, ≤4 cores or Data Saver): calm, static, instant. */
+.low-end-mobile body { background-image: none; }
+.low-end-mobile .hero-visual { display: none !important; }
+.low-end-mobile .hero { min-height: 0 !important; padding-top: 28px !important; }
+.low-end-mobile *,
+.low-end-mobile *::before,
+.low-end-mobile *::after {
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 1ms !important;
+}
+.low-end-mobile .button-primary,
+.low-end-mobile .reader-nav,
+.low-end-mobile .theme-trigger,
+.low-end-mobile .today-card,
+.low-end-mobile .theme-option,
+.low-end-mobile .resume,
+.low-end-mobile .collection-item img,
+.low-end-mobile .dialog,
+.low-end-mobile .theme-panel,
+.low-end-mobile .settings-panel,
+.low-end-mobile .library-panel { box-shadow: none !important; }
+.low-end-mobile .hero-halo,
+.low-end-mobile .theme-preview { display: none; }
+
+/* Older Android browsers (Chrome < 87) don't know `inset` / `margin-inline`. */
+.scrim, .reader-scrim, .welcome-screen { top: 0; right: 0; bottom: 0; left: 0; }
+.container { margin-left: auto; margin-right: auto; }
 body.has-tabs { --tabs-h: 0px; }
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; color: var(--ink); text-wrap: balance; }
 p { margin: 0; }

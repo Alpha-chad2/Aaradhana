@@ -64,7 +64,7 @@ function route() {
   };
 
   const sameReader = prev === "read" && r.view === "read";
-  if (prev && !sameReader && document.startViewTransition && !reducedMotion()) document.startViewTransition(swap);
+  if (prev && !sameReader && document.startViewTransition && !reducedMotion() && !isTouchLite()) document.startViewTransition(swap);
   else swap();
 
   if (!sameReader) {
@@ -233,12 +233,12 @@ function openPanel(name) {
   closeOverlays();
   panelReturn = document.activeElement;
   document.body.classList.add(`${name}-open`);
-  setTimeout(() => $(name === "library" ? "#librarySearch" : "#settingsPanel .settings-close")?.focus({ preventScroll: true }), 60);
+  setTimeout(() => { const el = $(name === "library" ? "#librarySearch" : "#settingsPanel .settings-close"); if (el) el.focus({ preventScroll: true }); }, 60);
 }
 function closePanels() {
   const open = document.body.classList.contains("library-open") || document.body.classList.contains("settings-open");
   document.body.classList.remove("library-open", "settings-open");
-  if (open && panelReturn) { panelReturn.focus?.({ preventScroll: true }); panelReturn = null; }
+  if (open && panelReturn) { if (panelReturn.focus) panelReturn.focus({ preventScroll: true }); panelReturn = null; }
 }
 document.addEventListener("closeoverlays", () => document.body.classList.remove("library-open", "settings-open"));
 
@@ -254,7 +254,7 @@ function setFocusMode(on, quiet) {
 let wakeLock = null;
 async function requestWake() {
   if (!("wakeLock" in navigator) || state.view !== "read" || wakeLock) return;
-  try { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } catch { /* denied */ }
+  try { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } catch (err) { /* denied */ }
 }
 function releaseWake() { if (wakeLock) wakeLock.release(); wakeLock = null; }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && state.wake) requestWake(); });
@@ -276,18 +276,18 @@ function showSource() {
 }
 async function copyText(text, ok) {
   try { await navigator.clipboard.writeText(text); announce(ok); }
-  catch {
+  catch (err) {
     const ta = Object.assign(document.createElement("textarea"), { value: text });
     ta.style.cssText = "position:fixed;opacity:0";
     document.body.append(ta); ta.select();
-    try { document.execCommand("copy"); announce(ok); } catch { announce("कॉपी करता आले नाही"); }
+    try { document.execCommand("copy"); announce(ok); } catch (err) { announce("कॉपी करता आले नाही"); }
     ta.remove();
   }
 }
 async function share() {
   const p = activePrayer();
   const url = `${location.origin}${location.pathname}${readUrl(p.id)}`;
-  if (navigator.share) { try { await navigator.share({ title: p.title, text: `${p.title} — आराधना`, url }); } catch { /* cancelled */ } }
+  if (navigator.share) { try { await navigator.share({ title: p.title, text: `${p.title} — आराधना`, url }); } catch (err) { /* cancelled */ } }
   else copyText(url, "दुवा कॉपी केला");
 }
 
@@ -325,7 +325,7 @@ const actions = {
    ========================================================================== */
 document.addEventListener("click", (e) => {
   const act = e.target.closest("[data-action]");
-  if (act) { actions[act.dataset.action]?.(); return; }
+  if (act) { if (actions[act.dataset.action]) actions[act.dataset.action](); return; }
   const f = e.target.closest("[data-filter]");
   if (f) {
     state.filter = f.dataset.filter;
@@ -334,7 +334,7 @@ document.addEventListener("click", (e) => {
     return;
   }
   const jump = e.target.closest("[data-jump]");
-  if (jump) { e.preventDefault(); document.getElementById(jump.dataset.jump)?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" }); }
+  if (jump) { e.preventDefault(); const target = document.getElementById(jump.dataset.jump); if (target) target.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" }); }
 });
 
 let collectionSearchFrame = 0;
@@ -415,8 +415,8 @@ route();
 (function welcome() {
   const w = $("#welcomeScreen");
   let seen = false;
-  try { seen = sessionStorage.getItem("aradhana-welcome") === "1"; sessionStorage.setItem("aradhana-welcome", "1"); } catch { seen = true; }
-  if (seen || reducedMotion() || state.view === "read") { w.remove(); return; }
+  try { seen = sessionStorage.getItem("aradhana-welcome") === "1"; sessionStorage.setItem("aradhana-welcome", "1"); } catch (err) { seen = true; }
+  if (seen || reducedMotion() || isLowEnd() || state.view === "read") { w.remove(); return; }
   w.hidden = false;
   const start = performance.now();
   let done = false;
